@@ -68,8 +68,8 @@ class FilePickerDelegate(
         uri ?: return false
         dispatchEventStatus(true)
         return try {
-            val newUri = FileUtils.writeBytesData(context = activity, uri, bytes) ?: uri
-            finishWithSuccess(newUri.path)
+            FileUtils.writeBytesData(context = activity, uri, bytes)
+            finishWithSuccess(FileUtils.getPath(uri, activity))
             true
         } catch (e: IOException) {
             Log.e(TAG, "Error while saving file", e)
