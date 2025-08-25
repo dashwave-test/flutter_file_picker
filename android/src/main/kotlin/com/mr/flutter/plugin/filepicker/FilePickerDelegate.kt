@@ -6,7 +6,9 @@ import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.provider.DocumentsContract
 import com.mr.flutter.plugin.filepicker.FileUtils.processFiles
+import com.mr.flutter.plugin.filepicker.FileUtils.getFullPathFromTreeUri
 import io.flutter.plugin.common.EventChannel.EventSink
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
@@ -69,7 +71,9 @@ class FilePickerDelegate(
         dispatchEventStatus(true)
         return try {
             val newUri = FileUtils.writeBytesData(context = activity, uri, bytes) ?: uri
-            finishWithSuccess(newUri.path)
+            // Get the actual file path from the URI
+            val actualPath = getFullPathFromTreeUri(newUri, activity) ?: newUri.path
+            finishWithSuccess(actualPath)
             true
         } catch (e: IOException) {
             Log.e(TAG, "Error while saving file", e)
