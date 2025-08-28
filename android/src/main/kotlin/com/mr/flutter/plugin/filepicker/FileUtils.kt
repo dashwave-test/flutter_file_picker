@@ -555,6 +555,31 @@ object FileUtils {
             return null
         }
 
+        // For content URIs, try to get the actual file path
+        if (treeUri.scheme == "content") {
+            try {
+                // Try to get the display name and parent directory
+                val fileName = getFileName(treeUri, con)
+                if (fileName != null) {
+                    // Try to get the actual path from the URI
+                    val cursor = con.contentResolver.query(treeUri, null, null, null, null)
+                    cursor?.use {
+                        if (it.moveToFirst()) {
+                            val columnIndex = it.getColumnIndex("_data")
+                            if (columnIndex != -1) {
+                                val filePath = it.getString(columnIndex)
+                                if (filePath != null) {
+                                    return filePath
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Error getting file path from URI", e)
+            }
+        }
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             if (isDownloadsDocument(treeUri)) {
                 val docId = DocumentsContract.getDocumentId(treeUri)
