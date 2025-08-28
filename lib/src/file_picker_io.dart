@@ -39,6 +39,7 @@ class FilePickerIO extends FilePicker {
     bool? withReadStream = false,
     bool lockParentWindow = false,
     bool readSequential = false,
+    bool cancelUploadOnWindowBlur = true,
   }) =>
       _getPath(
         type,
