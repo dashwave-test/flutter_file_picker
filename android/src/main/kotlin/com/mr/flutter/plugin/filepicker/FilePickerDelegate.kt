@@ -69,7 +69,10 @@ class FilePickerDelegate(
         dispatchEventStatus(true)
         return try {
             val newUri = FileUtils.writeBytesData(context = activity, uri, bytes) ?: uri
-            finishWithSuccess(newUri.path)
+            // Get the actual file path from the URI instead of just using uri.path
+            // which might return a path in the Downloads folder regardless of where the file was saved
+            val actualPath = FileUtils.getFullPathFromTreeUri(newUri, activity) ?: newUri.path
+            finishWithSuccess(actualPath)
             true
         } catch (e: IOException) {
             Log.e(TAG, "Error while saving file", e)
