@@ -277,7 +277,7 @@ class FilePickerWeb extends FilePicker {
       // Handle the ArrayBuffer type. This maps to a `ByteBuffer` in Dart.
       if (readerResult.isA<JSArrayBuffer>()) {
         yield (readerResult as JSArrayBuffer).toDart.asUint8List();
-        start += _readStreamChunkSize;
+        start += _readStream_chunk_size;
         continue;
       }
 
