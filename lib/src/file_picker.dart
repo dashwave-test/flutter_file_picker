@@ -82,6 +82,11 @@ abstract class FilePicker extends PlatformInterface {
   /// [readSequential] can be optionally set on web to keep the import file order during import.
   /// Not supported on macOS.
   ///
+  /// [cancelUploadOnWindowBlur] can be optionally set on web to control whether the file upload
+  /// should be cancelled when the window loses focus. This is useful when extensions (particularly
+  /// for Chrome Enterprise) scan selected files with exfiltration filters, which can cause the window
+  /// to lose focus. Defaults to `true`.
+  ///
   /// The result is wrapped in a [FilePickerResult] which contains helper getters
   /// with useful information regarding the picked [List<PlatformFile>].
   ///
@@ -105,6 +110,7 @@ abstract class FilePicker extends PlatformInterface {
     bool withReadStream = false,
     bool lockParentWindow = false,
     bool readSequential = false,
+    bool cancelUploadOnWindowBlur = true,
   }) async =>
       throw UnimplementedError('pickFiles() has not been implemented.');
 
