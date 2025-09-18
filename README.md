@@ -164,7 +164,7 @@ if (result != null) {
 
 For full usage details refer to the **[Wiki](https://github.com/miguelpruivo/flutter_file_picker/wiki)** above.
 
-## Example App
+## Example App update
 #### Android
 ![DemoAndroid](https://github.com/miguelpruivo/flutter_file_picker/blob/master/example/screenshots/example_android.gif?raw=true)
 
