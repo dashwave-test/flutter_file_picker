@@ -69,7 +69,7 @@ See the **[File Picker Wiki](https://github.com/miguelpruivo/flutter_file_picker
 4. [FAQ](https://github.com/miguelpruivo/flutter_file_picker/wiki/FAQ)
 5. [Troubleshooting](https://github.com/miguelpruivo/flutter_file_picker/wiki/Troubleshooting)
 
-## Usage
+## Usage update
 Quick simple usage example:
 
 #### Single file
