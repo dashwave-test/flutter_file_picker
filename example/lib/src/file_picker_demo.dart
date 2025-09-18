@@ -5,6 +5,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui';
+import 'widgets/liquid_glass_button.dart';
 
 class FilePickerDemo extends StatefulWidget {
   const FilePickerDemo({super.key});
@@ -467,44 +469,79 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
                     spacing: 10.0,
                     runSpacing: 10.0,
                     children: <Widget>[
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 120,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _pickFiles(),
-                          label: Text(_multiPick ? 'Pick files' : 'Pick file'),
-                          icon: const Icon(Icons.description),
+                        onPressed: () => _pickFiles(),
+                        label: Text(
+                          _multiPick ? 'Pick files' : 'Pick file',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.description,
+                          color: Colors.white.withOpacity(0.9),
                         ),
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 120,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _selectFolder(),
-                          label: const Text('Pick folder'),
-                          icon: const Icon(Icons.folder),
+                        onPressed: () => _selectFolder(),
+                        label: Text(
+                          'Pick folder',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.folder,
+                          color: Colors.white.withOpacity(0.9),
                         ),
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 250,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _pickFileAndDirectoryPaths(),
-                          label: Text('Pick files and directories'),
-                          icon: const Icon(Icons.folder_open),
+                        onPressed: () => _pickFileAndDirectoryPaths(),
+                        label: Text(
+                          'Pick files and directories',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.folder_open,
+                          color: Colors.white.withOpacity(0.9),
                         ),
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 120,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _saveFile(),
-                          label: const Text('Save file'),
-                          icon: const Icon(Icons.save_as),
+                        onPressed: () => _saveFile(),
+                        label: Text(
+                          'Save file',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.save_as,
+                          color: Colors.white.withOpacity(0.9),
                         ),
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 200,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _clearCachedFiles(),
-                          label: const Text('Clear temporary files'),
-                          icon: const Icon(Icons.delete_forever),
+                        onPressed: () => _clearCachedFiles(),
+                        label: Text(
+                          'Clear temporary files',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.9),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.delete_forever,
+                          color: Colors.white.withOpacity(0.9),
                         ),
                       ),
                     ],
