@@ -20,7 +20,7 @@
   </a>
 </p>
 
-# File Picker
+# File Picker small update
 A package that allows you to use the native file explorer to pick single or multiple files, with extensions filtering support.
 
 ## Currently supported features
