@@ -5,6 +5,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'liquid_glass_button.dart';
 
 class FilePickerDemo extends StatefulWidget {
   const FilePickerDemo({super.key});
@@ -467,45 +468,40 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
                     spacing: 10.0,
                     runSpacing: 10.0,
                     children: <Widget>[
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 120,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _pickFiles(),
-                          label: Text(_multiPick ? 'Pick files' : 'Pick file'),
-                          icon: const Icon(Icons.description),
-                        ),
+                        onPressed: () => _pickFiles(),
+                        label: _multiPick ? 'Pick files' : 'Pick file',
+                        icon: Icons.description,
+                        showIconLeft: true,
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 120,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _selectFolder(),
-                          label: const Text('Pick folder'),
-                          icon: const Icon(Icons.folder),
-                        ),
+                        onPressed: () => _selectFolder(),
+                        label: 'Pick folder',
+                        icon: Icons.folder,
+                        showIconLeft: true,
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 250,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _pickFileAndDirectoryPaths(),
-                          label: Text('Pick files and directories'),
-                          icon: const Icon(Icons.folder_open),
-                        ),
+                        onPressed: () => _pickFileAndDirectoryPaths(),
+                        label: 'Pick files and directories',
+                        icon: Icons.folder_open,
+                        showIconLeft: true,
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 120,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _saveFile(),
-                          label: const Text('Save file'),
-                          icon: const Icon(Icons.save_as),
-                        ),
+                        onPressed: () => _saveFile(),
+                        label: 'Save file',
+                        icon: Icons.save_as,
+                        showIconLeft: true,
                       ),
-                      SizedBox(
+                      LiquidGlassButton(
                         width: 200,
-                        child: FloatingActionButton.extended(
-                          onPressed: () => _clearCachedFiles(),
-                          label: const Text('Clear temporary files'),
-                          icon: const Icon(Icons.delete_forever),
-                        ),
+                        onPressed: () => _clearCachedFiles(),
+                        label: 'Clear temporary files',
+                        icon: Icons.delete_forever,
+                        showIconLeft: true,
                       ),
                     ],
                   ),
